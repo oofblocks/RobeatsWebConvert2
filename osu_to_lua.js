@@ -127,6 +127,13 @@ module.export("osu_to_lua", function(osu_file_contents) {
 	append_to_output("local function hold(time,track,duration) rtv.HitObjects[#rtv.HitObjects+1] = {Time=time;Type=2;Track=track;Duration=duration;}  end")
 	append_to_output("--")
 
+	append_to_output(`rtv.BPM = ${beatmap.bpmMin == beatmap.bpmMax  && beatmap.bpmMin | `${beatmap.bpmMin} - ${beatmap.bpmMax}`}`)
+	append_to_output(`rtv.Tags = ${beatmap.Tags}`)
+	append_to_output(`rtv.Mapper = ${beatmap.Creator}`)
+	append_to_output(`rtv.Difficulty = ${beatmap.Version}`)
+	append_to_output(`rtv.Notes = ${beatmap.nbCircles}`)
+	append_to_output(`rtv.Sliders = ${beatmap.nbSliders}`)
+	
 	for (var i = 0; i < beatmap.hitObjects.length; i++) {
 		var itr = beatmap.hitObjects[i];
 		var type = itr.objectName;
