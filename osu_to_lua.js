@@ -128,6 +128,7 @@ module.export("osu_to_lua", function(osu_file_contents) {
 	append_to_output(`rtv.Difficulty = "${beatmap.Version}"`)
 	append_to_output(`rtv.Notes = ${beatmap.nbCircles}`)
 	append_to_output(`rtv.Sliders = ${beatmap.nbSliders}`)
+	append_to_output(`rtv.Key = script.Name`)
 	
 	append_to_output("rtv.HitObjects = {}")
 	append_to_output("local function note(time,track) rtv.HitObjects[#rtv.HitObjects+1]={Time=time;Type=1;Track=track;} end")
