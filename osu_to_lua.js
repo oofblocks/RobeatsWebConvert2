@@ -129,12 +129,12 @@ module.export("osu_to_lua", function(osu_file_contents) {
 	//append_to_output(`rtv.Difficulty = "${beatmap.Version}"`)
 	//append_to_output(`rtv.Notes = ${beatmap.nbCircles}`)
 	//append_to_output(`rtv.Sliders = ${beatmap.nbSliders}`)
-	append_to_output(`rtv.Key = script.Name`)
+	//append_to_output(`rtv.Key = script.Name`)
 	
-	append_to_output("rtv.HitObjects = {}")
+	//append_to_output("rtv.HitObjects = {}")
 	append_to_output("local function Note(lane, ms) table.insert(Map.Notes[lane], ms) end")
 	append_to_output("local function Hold(lane, start, duration) table.insert(Map.Notes[lane], {start, finish}) end")
-	append_to_output("--")
+	//append_to_output("--")
 	
 	for (var i = 0; i < beatmap.hitObjects.length; i++) {
 		var itr = beatmap.hitObjects[i];
